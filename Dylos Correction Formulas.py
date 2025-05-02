@@ -16,42 +16,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": null,
    "id": "61618bee",
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/var/folders/_j/73q2vkp102d5fvjsj2tnjzzh0000gn/T/ipykernel_38413/198681607.py:3: DtypeWarning: Columns (3,4) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  Dy= pd.read_csv('/Users/camillegimilaro/Desktop/Temp/EV Dylos 1100/EV_1100_Cleaned.csv', skiprows=0)\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "   Small >0.5  Big >2.5 Clean Small Clean Big          DateTime\n",
-      "0       367.0      52.0       367.0      52.0  2024-06-26 12:32\n",
-      "1       366.0      44.0       366.0      44.0  2024-06-26 12:33\n",
-      "2       374.0      43.0       374.0      43.0  2024-06-26 12:34\n",
-      "3       374.0      38.0       374.0      38.0  2024-06-26 12:35\n",
-      "4       373.0      45.0       373.0      45.0  2024-06-26 12:36\n"
-     ]
-    },
-    {
-     "ename": "NameError",
-     "evalue": "name 'RH' is not defined",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
-      "Cell \u001b[0;32mIn[2], line 15\u001b[0m\n\u001b[1;32m     13\u001b[0m Dy \u001b[38;5;241m=\u001b[39m Dy\u001b[38;5;241m.\u001b[39mdrop(columns\u001b[38;5;241m=\u001b[39m[\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mDate and Time\u001b[39m\u001b[38;5;124m'\u001b[39m])\n\u001b[1;32m     14\u001b[0m \u001b[38;5;28mprint\u001b[39m(Dy\u001b[38;5;241m.\u001b[39mhead())\n\u001b[0;32m---> 15\u001b[0m \u001b[38;5;28mprint\u001b[39m(RH\u001b[38;5;241m.\u001b[39mhead())\n",
-      "\u001b[0;31mNameError\u001b[0m: name 'RH' is not defined"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "from datetime import datetime\n",
     "import pandas as pd\n",
@@ -143,21 +111,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": null,
    "id": "fe3b7d54-8852-4767-afc1-c3200fab45a8",
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "(252609, 5)"
-      ]
-     },
-     "execution_count": 3,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
+   "outputs": [],
    "source": [
     "sorted_Dylos = Dy.sort_values(by='DateTime', ascending= True)\n",
     "sorted_Dylos.shape"
@@ -165,21 +122,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": null,
    "id": "ec9c9fa9-f64e-4402-b52a-ce47cedada92",
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/plain": [
-       "(243073, 5)"
-      ]
-     },
-     "execution_count": 4,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
+   "outputs": [],
    "source": [
     "final_Dylos= sorted_Dylos.drop_duplicates(['DateTime'])\n",
     "final_Dylos.shape"
@@ -199,27 +145,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": null,
    "id": "df98610f-c09f-413a-bee9-828e66bc0ded",
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "   Clean Small  Clean Big          DateTime\n",
-      "0        367.0       52.0  2024-06-26 12:32\n",
-      "1        366.0       44.0  2024-06-26 12:33\n",
-      "2        374.0       43.0  2024-06-26 12:34\n",
-      "3        374.0       38.0  2024-06-26 12:35\n",
-      "4        373.0       45.0  2024-06-26 12:36\n",
-      "Clean Small    float64\n",
-      "Clean Big      float64\n",
-      "DateTime        object\n",
-      "dtype: object\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "final_Dylos = final_Dylos.drop(columns=['Small >0.5', 'Big >2.5'])\n",
     "\n",
@@ -232,7 +161,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": null,
    "id": "58a7f869-d916-4db8-8b42-72e0b958e3ab",
    "metadata": {},
    "outputs": [],
@@ -242,26 +171,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": null,
    "id": "6b629f1a-6fdb-48eb-9d83-20abb303e655",
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/var/folders/_j/73q2vkp102d5fvjsj2tnjzzh0000gn/T/ipykernel_38413/2083059789.py:1: DtypeWarning: Columns (10,11,12,13,19,20,21,23,40,41,42,44,51,62,63,66,67,80,92,93,94,95,96,97,98,99,100,101,102,103) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  noaa_data= pd.read_csv('/Users/camillegimilaro/Desktop/Temp/noaabackfill.csv')\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "float64\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "noaa_data= pd.read_csv('/Users/camillegimilaro/Desktop/Temp/noaabackfill.csv')\n",
     "print(noaa_data['HourlyRelativeHumidity'].dtypes)"
@@ -269,7 +182,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": null,
    "id": "23cad973",
    "metadata": {},
    "outputs": [],
